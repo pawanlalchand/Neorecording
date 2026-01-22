@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Set required headers for SharedArrayBuffer (needed for FFmpeg.wasm)
 app.use((req, res, next) => {
@@ -20,6 +20,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 NeoRecorder is running at http://localhost:${PORT}`);
+    console.log(`🚀 NeoRecorder is running on port ${PORT}`);
     console.log(`📹 Open your browser and start recording!`);
 });
